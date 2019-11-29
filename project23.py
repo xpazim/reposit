@@ -1,9 +1,11 @@
 #trampo de web
 
 import turtle
+import os
 from flask import Flask
 
 app = Flask(__name__)
+ 
 @app.route("/")
 
 def Jogo():
@@ -127,4 +129,6 @@ def Jogo():
             pen.write("Jogador 2 Venceu", align="center", font=("Arial", 15, "normal"))
             turtle.exitonclick()
 
-app.run()
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
